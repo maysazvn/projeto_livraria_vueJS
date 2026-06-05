@@ -1,7 +1,7 @@
 <script setup>
 // Este arquivo é um componente Vue que representa a página inicial do aplicativo. Ele pode conter uma mensagem de boas-vindas, destaques dos produtos ou qualquer outra informação relevante para os visitantes que acessam o site pela primeira vez. O conteúdo específico da página inicial pode ser personalizado conforme as necessidades do projeto, mas geralmente serve como um ponto de entrada para os usuários explorarem o restante do site. Como sugestão, vocês poderão adicionar uma seção de "Destaques" ou "Novidades" para mostrar os produtos mais recentes ou populares, incentivando os visitantes a navegarem para a página de produtos.
 
-import { produtos } from '@/data/product';
+import ProductList from '../products/ProductList.vue';
 </script>
 
 <template>
@@ -25,7 +25,7 @@ import { produtos } from '@/data/product';
     <div class="a">Mais vendidos</div>
    </section>
    <h2>Lançamentos</h2>
-   <section class="produtos">
+   <!--<section class="produtos">
     
 
     <div class="livros" v-for="livro in produtos" :key="livro.id">
@@ -38,7 +38,10 @@ import { produtos } from '@/data/product';
 
       <button>Comprar</button>
     </div>
-   </section>
+
+   </section>-->
+   <ProductList></ProductList>
+
   </main>
 
   <footer>
@@ -151,13 +154,20 @@ footer p, footer li{
 
 /* livros */
 
-section.produtos{
+h2{
+  text-align: center;
+  font-weight: bold;
+  margin-top: 15px;
+  font-size: 2rem;
+}
+
+/*section.produtos{
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   place-items: center;
-}
+}*/
 
-.livros img{
+/*.livros img{
   width: 20vw;
   height: 30vw;
 }
@@ -188,6 +198,6 @@ button:hover{
 transform: scale(0.9);
 transition: .2s;
 cursor: pointer;
-}
+}*/
 
 </style>
