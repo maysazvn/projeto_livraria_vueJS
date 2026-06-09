@@ -6,6 +6,7 @@ import ProductComments from './ProductComments.vue';
 import { formataPreco } from '@/utils/currencyUtils.js';
 defineProps(["key", "id", "titulo", "autor", "resenha", "preco", "genero", "capa"])
 const abrirDetalhes = ref(false);
+import { addCarrinho } from '@/utils/cartUtils.js';
 </script>
 
 <template>
@@ -36,7 +37,7 @@ const abrirDetalhes = ref(false);
             <p class="resenha">{{ resenha }}</p>
             <p class="preco">{{ formataPreco(preco) }}</p>
 
-            <button class="adicionar" @click.prevent="abrirDetalhes = false">Adicionar ao carrinho</button>
+            <button class="adicionar" @click.prevent="abrirDetalhes = false"  >Adicionar ao carrinho</button>
          </div>
         </div>
 
