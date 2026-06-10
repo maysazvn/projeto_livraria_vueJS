@@ -24,7 +24,7 @@ defineProps(["id", "titulo", "autor", "resenha", "preco", "genero", "capa", "qua
                     {{ formataPreco(preco) }}
                 </p>
             </div>
-            <input type="number">
+            <input type="number" placeholder="k">
             <p>{{ formataPreco(precototal) }}</p>
 
         </div>  
@@ -43,7 +43,7 @@ img {
     justify-content: space-between;
     margin: 0px auto;
     border-bottom: solid rgb(125, 125, 125) 1px;
-    padding: 10px;
+    padding: 40px;
     width: 80%;
 }
 
