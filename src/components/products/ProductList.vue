@@ -2,13 +2,31 @@
 // Este arquivo é um componente Vue que permitirá listar os livros disponíveis para compra. Ele exibirá uma grade de produtos, onde cada produto será representado por um componente ProductCard.vue. O componente ProductList.vue será responsável por buscar os dados dos livros (que estão armazenados em um arquivo JS local - /src/data/products.js). Ele usará um loop para renderizar um ProductCard para cada livro na lista, passando as informações do livro como props para o componente ProductCard. O ProductList.vue é projetado para ser usado na página de listagem de produtos, onde os usuários podem navegar pelos livros disponíveis e clicar em um produto para ver mais detalhes ou adicioná-lo ao carrinho de compras.
 import ProductCard from './ProductCard.vue';
 import { produtos } from '@/data/product.js';
+import { useRoute } from 'vue-router';
+import { computed } from 'vue';
+
+const route = useRoute()
+
+const produtosFiltrados = computed(() => {
+  const q = (route.query.q ?? '').toLowerCase()
+  const min = Number(route.query.precoMin) || 0
+  const max = Number(route.query.precoMax) || 9999
+  return produtos.filter((p) => {
+    const tituloCerto = p.titulo.toLowerCase().includes(q)
+    const precoCerto = p.preco >= min && p.preco <= max
+
+    return tituloCerto && precoCerto
+ /*if (!q) return produtos
+ return produtos.filter((p) => p.titulo.toLowerCase().includes(q))
+*/
+})})
 </script>
 
 <template>
 <section class="produtos">
     
 
-    <ProductCard v-for="livro in produtos" :key="livro.id" :id="livro.id" :titulo="livro.titulo" :autor="livro.autor" :resenha="livro.resenha" :preco="livro.preco" :genero="livro.genero" :capa="livro.capa"></ProductCard>
+    <ProductCard v-for="livro in produtosFiltrados" :key="livro.id" :id="livro.id" :titulo="livro.titulo" :autor="livro.autor" :resenha="livro.resenha" :preco="livro.preco" :genero="livro.genero" :capa="livro.capa"></ProductCard>
     
     
    </section>
