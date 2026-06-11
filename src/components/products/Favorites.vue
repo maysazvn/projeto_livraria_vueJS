@@ -30,6 +30,7 @@ h2{
     font-weight: bold;
   font-size: 1.5rem;
   max-width: 20vw;
+  margin: 1vw auto;
 }
 div.produtos{
   display: grid;
