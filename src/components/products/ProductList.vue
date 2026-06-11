@@ -9,10 +9,17 @@ const route = useRoute()
 
 const produtosFiltrados = computed(() => {
   const q = (route.query.q ?? '').toLowerCase()
-  if (!q) return produtos
-  return produtos.filter((p) => p.titulo.toLowerCase().includes(q))
-  
-})
+  const min = Number(route.query.precoMin) || 0
+  const max = Number(route.query.precoMax) || 9999
+  return produtos.filter((p) => {
+    const tituloCerto = p.titulo.toLowerCase().includes(q)
+    const precoCerto = p.preco >= min && p.preco <= max
+
+    return tituloCerto && precoCerto
+ /*if (!q) return produtos
+ return produtos.filter((p) => p.titulo.toLowerCase().includes(q))
+*/
+})})
 </script>
 
 <template>

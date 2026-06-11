@@ -5,6 +5,8 @@ import { ref, watch } from 'vue'
 const route = useRoute()
 const router = useRouter()
 const busca = ref(route.query.q ?? '')
+const precoMin = ref('');
+const precoMax = ref('');
 
 watch(busca, (valor) => {
   router.push({
@@ -19,6 +21,22 @@ watch(
     busca.value = valor ?? ''
   },
 )
+const atualizarFiltros = () => {
+const novaQuery = { ...route.query };
+if (precoMin.value) {
+    novaQuery.precoMin = precoMin.value;
+  } else {
+   novaQuery.precoMin = '';
+  }
+  if (precoMax.value) {
+    novaQuery.precoMax = precoMax.value;
+  } else {
+    novaQuery.precoMax = '';
+  }
+  router.push({
+    query: novaQuery
+  });
+}
 </script>
 
 <template>
@@ -30,6 +48,11 @@ watch(
 
     <div>
       <input v-model="busca" type="search" placeholder="Buscar produto..." class="busca" />
+    </div>
+    <div class="filtroPreco">
+      <input type="number" v-model.number="precoMin" placeholder="Minimo R$" @input="atualizarFiltros"/>
+      <p>-</p>
+      <input type="number" v-model.number="precoMax" placeholder="Máximo R$" @input="atualizarFiltros"/>
     </div>
 
     <nav>
@@ -96,4 +119,8 @@ nav ul {
   color: #c21a1a;
   padding: 5px 10px;
 }
+.filtroPreco input{
+  width: 100px;
+   border: #c21a1a solid 2px;
+  }
 </style>
