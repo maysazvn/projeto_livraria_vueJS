@@ -59,6 +59,7 @@ if (precoMin.value) {
       <ul>
         <li><RouterLink to="/">Home</RouterLink></li>
         <li><RouterLink to="/produtos">Produtos</RouterLink></li>
+        <li><RouterLink to="/favoritos">Favoritados</RouterLink></li>
         <li><RouterLink to="/carrinho">Carrinho</RouterLink></li>
       </ul>
     </nav>
