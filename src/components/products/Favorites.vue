@@ -29,12 +29,16 @@ const livrosFavoritados = computed(() => {
 h2{
     font-weight: bold;
   font-size: 1.5rem;
-  max-width: 20vw;
   margin: 1vw auto;
+  text-align: center;
 }
 div.produtos{
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   place-items: center;
+}
+
+p{
+    text-align: center;
 }
 </style>

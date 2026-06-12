@@ -6,7 +6,7 @@ import ProductComments from './ProductComments.vue';
 import { formataPreco } from '@/utils/currencyUtils.js';
 import { listaFavoritos } from '@/data/favoritos.js';
 import { favoritar } from '@/data/favoritos.js';
-defineProps(["key", "id", "titulo", "autor", "resenha", "preco", "genero", "capa"])
+defineProps(["key", "id", "titulo", "autor", "resenha", "preco", "genero", "capa", "subgenero"])
 const abrirDetalhes = ref(false);
 </script>
 
@@ -38,6 +38,7 @@ const abrirDetalhes = ref(false);
          <div class="direita">
             <p class="autor">{{ autor }}</p>
             <p class="genero">{{ genero }}</p>
+            <p class="subgenero">{{ subgenero }}</p>
             <p class="resenha">{{ resenha }}</p>
             <p class="preco">{{ formataPreco(preco) }}</p>
 
@@ -184,5 +185,9 @@ width: 1vw;
 padding: 1px;
 margin-left: 10px;
 margin-bottom: 1px;
+}
+
+.direita .subgenero{
+    font-size: 1rem;
 }
 </style>

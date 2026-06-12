@@ -11,11 +11,13 @@ const produtosFiltrados = computed(() => {
   const q = (route.query.q ?? '').toLowerCase()
   const min = Number(route.query.precoMin) || 0
   const max = Number(route.query.precoMax) || 9999
+  const generoLivro = route.query.genero;
   return produtos.filter((p) => {
     const tituloCerto = p.titulo.toLowerCase().includes(q)
     const precoCerto = p.preco >= min && p.preco <= max
+    const generoCerto = !generoLivro || p.genero.toLowerCase() === generoLivro.toLowerCase();
 
-    return tituloCerto && precoCerto
+    return tituloCerto && precoCerto && generoCerto;
  /*if (!q) return produtos
  return produtos.filter((p) => p.titulo.toLowerCase().includes(q))
 */
@@ -26,7 +28,7 @@ const produtosFiltrados = computed(() => {
 <section class="produtos">
     
 
-    <ProductCard v-for="livro in produtosFiltrados" :key="livro.id" :id="livro.id" :titulo="livro.titulo" :autor="livro.autor" :resenha="livro.resenha" :preco="livro.preco" :genero="livro.genero" :capa="livro.capa"></ProductCard>
+    <ProductCard v-for="livro in produtosFiltrados" :key="livro.id" :id="livro.id" :titulo="livro.titulo" :autor="livro.autor" :resenha="livro.resenha" :preco="livro.preco" :genero="livro.genero" :capa="livro.capa" :subgenero="livro.subgenero"></ProductCard>
     
     
    </section>
