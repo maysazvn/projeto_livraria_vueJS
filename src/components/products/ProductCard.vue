@@ -4,9 +4,8 @@
 import { ref } from 'vue';
 import ProductComments from './ProductComments.vue';
 import { formataPreco } from '@/utils/currencyUtils.js';
-import { listaFavoritos } from '@/data/favoritos.js';
 import { favoritar } from '@/data/favoritos.js';
-defineProps(["key", "id", "titulo", "autor", "resenha", "preco", "genero", "capa", "subgenero"])
+defineProps(["id", "titulo", "autor", "resenha", "preco", "genero", "capa", "subgenero"])
 const abrirDetalhes = ref(false);
 </script>
 
@@ -27,7 +26,7 @@ const abrirDetalhes = ref(false);
 
     <div v-if="abrirDetalhes" class="overlay">
         <div class="detalhes">
-            <button class="fechar" @click.prevent="abrirDetalhes = false">Fechar</button>
+            <button class="fechar" @click.prevent="abrirDetalhes = false">X</button>
             <h3>{{ titulo }}</h3>
 
         <div class="livro">

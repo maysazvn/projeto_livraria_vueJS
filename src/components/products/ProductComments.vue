@@ -1,13 +1,28 @@
 <script setup>
-import { ref } from 'vue';
+import { computed, ref } from 'vue';
 defineProps(['id']);
 
 const comentarios = ref([{nome: 'Fábio Longo de Moura', texto: 'Muito bom!'}]);
 const nome = ref('');
 const texto = ref('');
+let filtro = ref('')
+
+let comentariosFiltrados = computed(() => {
+  if (filtro.value.trim().length > 0){
+return comentarios.value.filter(comentario => comentario.desc.includes(filtro.value));
+  }
+  else{
+    return comentarios.value;
+  }
+})
 
 function adicionarComentario() {
+
+  if(!nome.value.trim() || !texto.value.trim()){
+    alert("Preencha antes de enviar!")
+  } else{
     comentarios.value.unshift({nome: nome.value, texto: texto.value});
+    }
     nome.value = '';
     texto.value = '';
 }
@@ -25,7 +40,7 @@ function adicionarComentario() {
             </div>
         </div>
 
-        <div class="listaComentarios" v-for="comentario in comentarios">
+        <div class="listaComentarios" v-for="comentario in comentariosFiltrados" :key="comentario.nome">
             <p class="nome">{{ comentario.nome }}</p>
             <p class="texto">{{ comentario.texto }}</p>
         </div>

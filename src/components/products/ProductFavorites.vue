@@ -3,7 +3,6 @@ import { computed } from 'vue';
 import ProductCard from './ProductCard.vue';
 import { produtos } from '@/data/product';
 import { listaFavoritos } from '@/data/favoritos.js';
-import { favoritar } from '@/data/favoritos.js';
 
 const livrosFavoritados = computed(() => {
     return produtos.filter(livro => listaFavoritos.value.includes(livro.id));

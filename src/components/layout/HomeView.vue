@@ -5,7 +5,7 @@ import ProductList from '../products/ProductList.vue';
 </script>
 
 <template>
- 
+
   <main>
    <section class="banner">
     <div>
@@ -24,22 +24,8 @@ import ProductList from '../products/ProductList.vue';
     <div>Livros recomendados</div>
     <div class="a">Mais vendidos</div>
    </section>
-   <h2>Lançamentos</h2>
-   <!--<section class="produtos">
-    
+   <h2>Mais vendidos</h2>
 
-    <div class="livros" v-for="livro in produtos" :key="livro.id">
-      <img :src="livro.capa">
-
-      <h3>{{ livro.titulo }}</h3>
-      <p class="autor">{{ livro.autor }}</p>
-      <p class="preco">R${{ livro.preco }}</p>
-
-
-      <button>Comprar</button>
-    </div>
-
-   </section>-->
    <ProductList></ProductList>
 
   </main>
@@ -160,44 +146,4 @@ h2{
   margin-top: 15px;
   font-size: 2rem;
 }
-
-/*section.produtos{
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  place-items: center;
-}*/
-
-/*.livros img{
-  width: 20vw;
-  height: 30vw;
-}
-
-.livros h3{
-  font-weight: bold;
-  font-size: 1.5rem;
-  max-width: 20vw;
-}
-
-.livros p.preco{
- font-weight: bold;
-font-size: 1.5rem;
-}
-
-.livros button{
-font-size: 1.5rem;
-background: #c21a1a;
-color: #ffffff;
-border: none;
-border-radius: 10px;
-width: 10vw;
-padding: 10px;
-margin-bottom: 50px;
-}
-
-button:hover{
-transform: scale(0.9);
-transition: .2s;
-cursor: pointer;
-}*/
-
 </style>
