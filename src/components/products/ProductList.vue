@@ -33,7 +33,7 @@ const produtosFiltrados = computed(() => {
 </template>
 
 <style scoped>
-section.produtos{
+section.produtos {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   place-items: center;
