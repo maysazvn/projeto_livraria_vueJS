@@ -4,6 +4,8 @@
 import { ref } from 'vue';
 import ProductComments from './ProductComments.vue';
 import { formataPreco } from '@/utils/currencyUtils.js';
+import { listaFavoritos } from '@/data/favoritos.js';
+import { favoritar } from '@/data/favoritos.js';
 defineProps(["key", "id", "titulo", "autor", "resenha", "preco", "genero", "capa"])
 const abrirDetalhes = ref(false);
 import { addCarrinho } from '@/utils/cartUtils.js';
@@ -13,7 +15,10 @@ import { addCarrinho } from '@/utils/cartUtils.js';
 <div class="livros">
       <img :src="capa">
 
+      <div class="favoritar">
       <h3>{{ titulo }}</h3>
+      <button class="favoritar" @click="favoritar(id)">❤️</button>
+      </div>
       <p class="autor">{{ autor }}</p>
       <p class="preco">{{ formataPreco(preco) }}</p>
 
@@ -167,5 +172,18 @@ padding: 10px;
 
 hr{
     margin: 25px 0 15px 0;
+}
+
+div.favoritar{
+    display: flex;
+}
+
+button.favoritar{
+font-size: 1.5rem;
+background: #ffffff00;
+width: 1vw;
+padding: 1px;
+margin-left: 10px;
+margin-bottom: 1px;
 }
 </style>
