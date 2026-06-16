@@ -9,8 +9,9 @@ export const produtos = [
   preco: 58.00,
   genero: 'ficção',
   subgenero: 'ficção científica',
-  capa: '/imagens/jurassic-park.jpg'
-}, 
+  capa: '/imagens/jurassic-park.jpg',
+  vendas: 150
+},
 {
   id: 2,
   titulo: 'Orgulho e Preconceito',
@@ -19,7 +20,8 @@ export const produtos = [
   preco: 51.00,
   genero: 'romance',
   subgenero: 'romance de amor',
-  capa: '/imagens/orgulho-e-preconceito.jpg'
+  capa: '/imagens/orgulho-e-preconceito.jpg',
+  vendas: 124
 },
 {
   id: 3,
@@ -29,7 +31,8 @@ export const produtos = [
   preco: 44.90,
   genero: 'romance',
   subgenero: 'romance gótico',
-  capa: '/imagens/o-morro.jpg'
+  capa: '/imagens/o-morro.jpg',
+  vendas: 1745
 },
 {
   id: 4,
@@ -39,7 +42,8 @@ export const produtos = [
   preco: 36.70,
   genero: 'romance',
   subgenero: 'romance modernista',
-  capa: '/imagens/capitaes.jpg'
+  capa: '/imagens/capitaes.jpg',
+  vendas: 111
 },
 {
   id: 5,
@@ -49,7 +53,8 @@ export const produtos = [
   preco: 24.50,
   genero: 'ficção',
   subgenero: 'ficção realista',
-  capa: '/imagens/olhos.jpg'
+  capa: '/imagens/olhos.jpg',
+  vendas: 126
 },
 {
   id: 6,
@@ -59,7 +64,8 @@ export const produtos = [
   preco: 27.00,
   genero: 'fantasia',
   subgenero: 'fantasia gótica',
-  capa: '/imagens/correnteza.jpg'
+  capa: '/imagens/correnteza.jpg',
+  vendas: 1999
 },
 {
   id: 7,
@@ -69,7 +75,8 @@ export const produtos = [
   preco: 62.00,
   genero: 'terror',
   subgenero: 'terror cósmico',
-  capa: '/imagens/chamado.png'
+  capa: '/imagens/chamado.png',
+  vendas: 1212
 },
 {
   id: 8,
@@ -79,7 +86,8 @@ export const produtos = [
   preco: 35.00,
   genero: 'romance',
   subgenero: 'romance psicológico',
-  capa: '/imagens/estrela.jpg'
+  capa: '/imagens/estrela.jpg',
+  vendas: 1111
 },
 {
   id: 9,
@@ -89,7 +97,8 @@ export const produtos = [
   preco: 13.00,
   genero: 'fantasia',
   subgenero: 'fantasia folclórica',
-  capa: '/imagens/chuviscodebosta.jpg'
+  capa: '/imagens/chuviscodebosta.jpg',
+  vendas: 15024352
 },
 {
   id: 10,
@@ -99,7 +108,8 @@ export const produtos = [
   preco: 7.00,
   genero: 'fantasia',
   subgenero: 'fantasia infantil',
-  capa: '/imagens/monica.jpg'
+  capa: '/imagens/monica.jpg',
+  vendas: 294
 },
 {
   id: 11,
@@ -108,7 +118,8 @@ export const produtos = [
   resenha: 'autêntico',
   preco: 67.00,
   genero: 'autobiografia',
-  capa: '/imagens/authentic.jpg'
+  capa: '/imagens/authentic.jpg',
+  vendas: 985
 },
 {
   id: 12,
@@ -117,7 +128,8 @@ export const produtos = [
   resenha: 'oxigenio',
   preco: 45.00,
   genero: 'autoajuda',
-  capa: '/imagens/respirar.jpg'
+  capa: '/imagens/respirar.jpg',
+  vendas: 1
 }
 ,
 {
@@ -128,7 +140,8 @@ export const produtos = [
   preco: 49.00,
   genero: 'terror',
   subgenero: 'terror gótico',
-  capa: '/imagens/frankenstein.jpg'
+  capa: '/imagens/frankenstein.jpg',
+  vendas: 200
 },
 {
   id: 14,
@@ -138,7 +151,8 @@ export const produtos = [
   preco: 67.00,
   genero: 'terror',
   subgenero: 'terror gótico',
-  capa: '/imagens/dracula.jpg'
+  capa: '/imagens/dracula.jpg',
+  vendas: 1502
 },
 {
   id: 15,
@@ -148,7 +162,8 @@ export const produtos = [
   preco: 55.00,
   genero: 'romance',
   subgenero: 'romance policial',
-  capa: '/imagens/noitebruxas.jpg'
+  capa: '/imagens/noitebruxas.jpg',
+  vendas: 104
 },
 {
   id: 16,
@@ -158,7 +173,8 @@ export const produtos = [
   preco: 895.00,
   genero: 'terror',
   subgenero: 'terror sobrenatural',
-  capa: '/imagens/bebe.jpg'
+  capa: '/imagens/bebe.jpg',
+  vendas: 500
 },
 {
   id: 17,
@@ -168,7 +184,8 @@ export const produtos = [
   preco: 65.00,
   genero: 'terror',
   subgenero: 'terror psicológico',
-  capa: '/imagens/iluminado.jpg'
+  capa: '/imagens/iluminado.jpg',
+  vendas: 245
 },
 {
   id: 18,
@@ -178,7 +195,8 @@ export const produtos = [
   preco: 35.00,
   genero: 'terror',
   subgenero: 'terror gótico',
-  capa: '/imagens/corvo.jpg'
+  capa: '/imagens/corvo.jpg',
+  vendas: 925
 },
 {
   id: 19,
@@ -188,7 +206,8 @@ export const produtos = [
   preco: 53.00,
   genero: 'romance',
   subgenero: 'romance psicologico',
-  capa: '/imagens/domcasmurro.jpg'
+  capa: '/imagens/domcasmurro.jpg',
+  vendas: 193
 },
 {
   id: 20,
@@ -198,7 +217,8 @@ export const produtos = [
   preco: 61.00,
   genero: 'romance',
   subgenero: 'romance melodramático',
-  capa: '/imagens/chamenome.jpg'
+  capa: '/imagens/chamenome.jpg',
+  vendas: 942
 },
 {
   id: 21,
@@ -208,7 +228,8 @@ export const produtos = [
   preco: 24.00,
   genero: 'ficção',
   subgenero: 'ficção distópica',
-  capa: '/imagens/1984.jpg'
+  capa: '/imagens/1984.jpg',
+  vendas: 243
 },
 {
   id: 22,
@@ -218,7 +239,8 @@ export const produtos = [
   preco: 45.00,
   genero: 'ficção',
   subgenero: 'ficção surrealista',
-  capa: '/imagens/metamorfose.jpg'
+  capa: '/imagens/metamorfose.jpg',
+  vendas: 853
 },
 {
   id: 23,
@@ -228,7 +250,8 @@ export const produtos = [
   preco: 34.00,
   genero: 'ficção',
   subgenero: 'ficção filosófica',
-  capa: '/imagens/biblioteca.jpg'
+  capa: '/imagens/biblioteca.jpg',
+  vendas: 101
 },
 {
   id: 24,
@@ -238,7 +261,8 @@ export const produtos = [
   preco: 765.00,
   genero: 'ficção',
   subgenero: 'ficção fantástica',
-  capa: '/imagens/pequenoprincipe.jpg'
+  capa: '/imagens/pequenoprincipe.jpg',
+  vendas: 332
 },
 {
   id: 25,
@@ -248,7 +272,8 @@ export const produtos = [
   preco: 45.00,
   genero: 'fantasia',
   subgenero: 'fantasia épica',
-  capa: '/imagens/nomevento.jpg'
+  capa: '/imagens/nomevento.jpg',
+  vendas: 126
 },
 {
   id: 26,
@@ -258,7 +283,8 @@ export const produtos = [
   preco: 76.00,
   genero: 'fantasia',
   subgenero: 'fantasia romântica',
-  capa: '/imagens/corte.jpg'
+  capa: '/imagens/corte.jpg',
+  vendas: 11
 },
 {
   id: 27,
@@ -268,7 +294,8 @@ export const produtos = [
   preco: 36.00,
   genero: 'fantasia',
   subgenero: 'fantasia épica',
-  capa: '/imagens/sociedade.jpg'
+  capa: '/imagens/sociedade.jpg',
+  vendas: 123
 },
 {
   id: 28,
@@ -278,6 +305,7 @@ export const produtos = [
   preco: 85.00,
   genero: 'fantasia',
   subgenero: 'fantasia mágica',
-  capa: '/imagens/pedra.jpg'
+  capa: '/imagens/pedra.jpg',
+  vendas: 2
 }
 ]
