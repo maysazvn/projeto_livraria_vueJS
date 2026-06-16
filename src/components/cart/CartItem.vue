@@ -15,7 +15,7 @@ defineProps(["id", "titulo", "autor", "resenha", "preco", "genero", "capa", "qua
             
             <img :src="capa">
             
-            <div class="capa">
+            <div class="detalhes">
                 <h3>
                     {{ titulo }}
                 </h3>
@@ -24,7 +24,7 @@ defineProps(["id", "titulo", "autor", "resenha", "preco", "genero", "capa", "qua
                     {{ formataPreco(preco) }}
                 </p>
             </div>
-            <input type="number" placeholder="k">
+            <input type="number" :placeholder="quantidade">
             <p>{{ formataPreco(precototal) }}</p>
 
         </div>  
@@ -47,11 +47,22 @@ img {
     width: 80%;
 }
 
+
 input { 
     max-height: 50px;
 }
-
 input a {
 font-size: 30px;
+}
+
+input {
+    font-size: 15px;
+    font-weight: bold;
+    max-width: 80px;
+}
+
+div.detalhes {
+    font-size: 25px;
+    margin: 30px 600px 0 20px;
 }
 </style>
