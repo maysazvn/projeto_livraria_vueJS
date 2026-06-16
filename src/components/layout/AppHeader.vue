@@ -48,13 +48,18 @@ if (precoMin.value) {
 
     <div>
       <input v-model="busca" type="search" placeholder="Buscar produto..." class="busca" />
+      <details>
+      <summary>
+        Filtrar por preço:
+      </summary>
+        <div class="filtroPreco">
+          <input type="number" v-model.number="precoMin" placeholder="Minimo R$" @input="atualizarFiltros"/>
+          <p>-</p>
+          <input type="number" v-model.number="precoMax" placeholder="Máximo R$" @input="atualizarFiltros"/>
+        </div>
+      </details>
     </div>
-    <div class="filtroPreco">
-      <input type="number" v-model.number="precoMin" placeholder="Minimo R$" @input="atualizarFiltros"/>
-      <p>-</p>
-      <input type="number" v-model.number="precoMax" placeholder="Máximo R$" @input="atualizarFiltros"/>
-    </div>
-
+      
     <nav>
       <ul>
         <li><RouterLink to="/">Home</RouterLink></li>
@@ -119,9 +124,13 @@ nav ul {
   border-radius: 20px;
   color: #c21a1a;
   padding: 5px 10px;
+  margin-right: 20px;
 }
 .filtroPreco input{
   width: 100px;
    border: #c21a1a solid 2px;
+  }
+  summary {
+    margin-bottom: 2px;
   }
 </style>
