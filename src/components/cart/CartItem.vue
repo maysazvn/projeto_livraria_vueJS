@@ -3,8 +3,10 @@
 
 import { formataPreco } from '@/utils/currencyUtils';
 defineProps(["id", "titulo", "autor", "resenha", "preco", "genero", "capa", "quantidade", "precototal"]);
-
-
+const emit = defineEmits(['remover']);
+const removimento = (id) => {
+  emit('remover', id);
+};
 
 </script>
 
@@ -27,6 +29,9 @@ defineProps(["id", "titulo", "autor", "resenha", "preco", "genero", "capa", "qua
             <input type="number" placeholder="k">
             <p>{{ formataPreco(precototal) }}</p>
 
+        <button class="botaoRemover" @click="removimento(id)">
+        <i class="fa-solid fa-trash"></i> Excluir
+      </button>
         </div>  
 
     </section>

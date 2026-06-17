@@ -4,6 +4,10 @@ import CartItem from './CartItem.vue'
 // Este arquivo é um componente Vue que permite ao usuário visualizar e gerenciar os itens em seu carrinho de compras. Ele exibe uma lista de itens, permite que o usuário ajuste as quantidades ou remova itens, e mostra um resumo do total do carrinho. O componente é projetado para ser usado em uma página de carrinho de compras, onde os usuários podem revisar seus itens antes de finalizar a compra.
 import { carrinho } from '@/utils/cartUtils.js'
 import CartSummary from './CartSummary.vue';
+function removerDoCarrinho(idLivro) {
+const pqpFunciona = Number(idLivro);
+carrinho.value = carrinho.value.filter((item) => item.id !== pqpFunciona);
+}
 </script>
 
 <template>
@@ -12,7 +16,7 @@ import CartSummary from './CartSummary.vue';
 
     <div class="produtos">
   <h3>
-        Produto
+        Produto              
       </h3>
       <h3>
         Quantidade
@@ -36,6 +40,7 @@ import CartSummary from './CartSummary.vue';
       :id="item.id"
       :quantidade="item.quantidade"
       :precototal="item.precoTotal"
+      @remover="removerDoCarrinho"
     ></CartItem>
 
 

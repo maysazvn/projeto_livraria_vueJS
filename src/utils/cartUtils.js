@@ -2,8 +2,9 @@
 //Exemplo: Remover itens do carrinho, adicionar quantidade para o item já no carrinho, remover quantidade para o item já no carrinho, calcular o total do carrinho, filtrar livros por autor, por preço, etc. Vocês podem criar funções para cada uma dessas funcionalidades e exportá-las para serem usadas em outros componentes do aplicativo, como o ProductList.vue, onde o usuário poderá filtrar os livros disponíveis, ou no CartPanel.vue, onde o usuário poderá gerenciar os itens em seu carrinho de compras.
 
 import { produtos } from '@/data/product'
+import { ref } from 'vue'
 
-const carrinho = [
+const carrinho = ref([
   {
     id: 1,
     titulo: 'Jurassic Park',
@@ -37,7 +38,7 @@ const carrinho = [
     quantidade: 3,
     precoTotal: 134.7,
   },
-]
+])
 
 function addCarrinho(idLivro, quantidade) {
   const livro = produtos.find((p) => p.id === idLivro)
