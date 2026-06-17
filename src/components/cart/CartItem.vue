@@ -27,7 +27,7 @@ const removimento = (id) => {
         {{ formataPreco(preco) }}
                 </p>
             </div>
-            <input type="number" placeholder="k">
+            <input type="number" :placeholder="quantidade">
             <p class="pTotal">{{ formataPreco(precototal) }}</p>
         
         
@@ -65,6 +65,7 @@ input{
     border-radius: 25px;
     font-weight: bolder;
     font-size: large;
+    cursor: pointer;
 }
 .container {
     display: flex;
