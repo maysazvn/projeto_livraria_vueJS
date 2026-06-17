@@ -15,7 +15,8 @@ const removimento = (id) => {
     <section>
         <div class="item">
             
-            <img :src="capa">
+            <div class="container">
+                <img :src="capa">
             
             <div class="capa">
                 <h3>
@@ -27,19 +28,49 @@ const removimento = (id) => {
                 </p>
             </div>
             <input type="number" placeholder="k">
-            <p>{{ formataPreco(precototal) }}</p>
-
-        <button class="botaoRemover" @click="removimento(id)">
-        <i class="fa-solid fa-trash"></i> Excluir
-      </button>
-        </div>  
+            <p class="pTotal">{{ formataPreco(precototal) }}</p>
+        
+        
+        
+            <button class="botaoRemover" @click="removimento(id)">
+                <i class="fa-solid fa-trash"></i> Excluir
+            </button>
+       </div>
+          </div>
 
     </section>
 
 </template>
 
 <style scoped>
-
+.pTotal{
+    position: absolute;
+    right: 10vw;
+}
+input{
+    position: absolute;
+    right: 45vw;
+}
+.container img{ 
+    margin-right: 50px ;
+}
+.botaoRemover {
+    color: white;
+    background-color: #c21a1a;
+    height: 50px;
+    width: 100px;
+    position: absolute;
+    right: 3vw;
+    border: none;
+    border-radius: 25px;
+    font-weight: bolder;
+    font-size: large;
+}
+.container {
+    display: flex;
+    align-items: center; 
+ 
+}
 img {
     max-width: 250px;
 }
