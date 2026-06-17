@@ -58,7 +58,7 @@ margin-bottom: 35px;
 h1 {
     font-weight: bold;
     font-size: 30px;
-    margin-bottom: 2%;
+    margin-bottom: 25px;
 }
 
 </style>

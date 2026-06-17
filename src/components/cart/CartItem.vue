@@ -20,8 +20,8 @@ defineProps(["id", "titulo", "autor", "resenha", "preco", "genero", "capa", "qua
                     {{ titulo }}
                 </h3>
                 <p>{{ autor }}</p>
-                <p>
-                    {{ formataPreco(preco) }}
+                <p class="preoc">
+        {{ formataPreco(preco) }}
                 </p>
             </div>
             <input type="number" :placeholder="quantidade">
@@ -45,16 +45,20 @@ img {
     border-bottom: solid rgb(125, 125, 125) 1px;
     padding: 40px;
     width: 80%;
+    position: relative;
 }
 
 
 input { 
     max-height: 50px;
-}
-input a {
-font-size: 30px;
+    position: absolute;
+    right: 590px;
+    padding: 7px;
 }
 
+inpu::placeholder {
+        font-size: 30px;
+}
 input {
     font-size: 15px;
     font-weight: bold;
@@ -64,5 +68,9 @@ input {
 div.detalhes {
     font-size: 25px;
     margin: 30px 600px 0 20px;
+    position: relative;
 }
+
+
+
 </style>
