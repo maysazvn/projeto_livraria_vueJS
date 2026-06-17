@@ -136,11 +136,11 @@ nav ul {
 }
 .filtroPreco input{
   width: 100px;
-   border: #c21a1a solid 2px;
+   border: #c21a1a solid 1px;
   }
   summary {
     margin-bottom: 2px;
-
+  }
   .produtos{
     position: relative;
   }
