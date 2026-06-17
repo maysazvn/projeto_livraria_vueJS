@@ -18,13 +18,13 @@ const removimento = (id) => {
             <div class="container">
                 <img :src="capa">
             
-            <div class="capa">
+            <div class="detalhes">
                 <h3>
                     {{ titulo }}
                 </h3>
                 <p>{{ autor }}</p>
-                <p>
-                    {{ formataPreco(preco) }}
+                <p class="preoc">
+        {{ formataPreco(preco) }}
                 </p>
             </div>
             <input type="number" placeholder="k">
@@ -81,13 +81,32 @@ img {
     border-bottom: solid rgb(125, 125, 125) 1px;
     padding: 40px;
     width: 80%;
+    position: relative;
 }
+
 
 input { 
     max-height: 50px;
+    position: absolute;
+    right: 590px;
+    padding: 7px;
 }
 
-input a {
-font-size: 30px;
+inpu::placeholder {
+        font-size: 30px;
 }
+input {
+    font-size: 15px;
+    font-weight: bold;
+    max-width: 80px;
+}
+
+div.detalhes {
+    font-size: 25px;
+    margin: 30px 600px 0 20px;
+    position: relative;
+}
+
+
+
 </style>
