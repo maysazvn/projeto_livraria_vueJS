@@ -4,7 +4,7 @@ import { createRouter, createWebHistory } from 'vue-router'
 import HomeView from '@/components/layout/HomeView.vue'
 import ProductList from '@/components/products/ProductList.vue'
 import CartPanel from '@/components/cart/CartPanel.vue'
-import Favorites from '@/components/products/Favorites.vue'
+import Favorites from '@/components/products/ProductFavorites.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),

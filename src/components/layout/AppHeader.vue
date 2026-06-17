@@ -63,7 +63,15 @@ if (precoMin.value) {
     <nav>
       <ul>
         <li><RouterLink to="/">Home</RouterLink></li>
-        <li><RouterLink to="/produtos">Produtos</RouterLink></li>
+        <li class="produtos"><RouterLink to="/produtos">Produtos</RouterLink>
+          <div class="submenu">
+          <RouterLink to="/produtos?genero=romance">Romance</RouterLink>
+          <RouterLink to="/produtos?genero=ficção">Ficção</RouterLink>
+          <RouterLink to="/produtos?genero=fantasia">Fantasia</RouterLink>
+          <RouterLink to="/produtos?genero=terror">Terror</RouterLink>
+          <RouterLink to="/produtos?genero=outros">Outros</RouterLink>
+          </div>
+        </li>
         <li><RouterLink to="/favoritos">Favoritados</RouterLink></li>
         <li><RouterLink to="/carrinho">Carrinho</RouterLink></li>
       </ul>
@@ -132,5 +140,29 @@ nav ul {
   }
   summary {
     margin-bottom: 2px;
+
+  .produtos{
+    position: relative;
+  }
+
+  .submenu{
+    display: none;
+    position: absolute;
+    top: 100%;
+    padding: 10px;
+    left: 0;
+    z-index: 10;
+    background-color: white;
+    border: 2px solid #c21a1a;
+  }
+
+  .submenu a{
+    display: block;
+    color: #c21a1a;
+    padding: 5px;
+  }
+
+  .produtos:hover .submenu{
+    display: block;
   }
 </style>
