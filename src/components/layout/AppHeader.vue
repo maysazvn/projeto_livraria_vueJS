@@ -48,17 +48,30 @@ if (precoMin.value) {
 
     <div>
       <input v-model="busca" type="search" placeholder="Buscar produto..." class="busca" />
+      <details>
+      <summary>
+        Filtrar por preço:
+      </summary>
+        <div class="filtroPreco">
+          <input type="number" v-model.number="precoMin" placeholder="Minimo R$" @input="atualizarFiltros"/>
+          <p>-</p>
+          <input type="number" v-model.number="precoMax" placeholder="Máximo R$" @input="atualizarFiltros"/>
+        </div>
+      </details>
     </div>
-    <div class="filtroPreco">
-      <input type="number" v-model.number="precoMin" placeholder="Minimo R$" @input="atualizarFiltros"/>
-      <p>-</p>
-      <input type="number" v-model.number="precoMax" placeholder="Máximo R$" @input="atualizarFiltros"/>
-    </div>
-
+      
     <nav>
       <ul>
         <li><RouterLink to="/">Home</RouterLink></li>
-        <li><RouterLink to="/produtos">Produtos</RouterLink></li>
+        <li class="produtos"><RouterLink to="/produtos">Produtos</RouterLink>
+          <div class="submenu">
+          <RouterLink to="/produtos?genero=romance">Romance</RouterLink>
+          <RouterLink to="/produtos?genero=ficção">Ficção</RouterLink>
+          <RouterLink to="/produtos?genero=fantasia">Fantasia</RouterLink>
+          <RouterLink to="/produtos?genero=terror">Terror</RouterLink>
+          <RouterLink to="/produtos?genero=outros">Outros</RouterLink>
+          </div>
+        </li>
         <li><RouterLink to="/favoritos">Favoritados</RouterLink></li>
         <li><RouterLink to="/carrinho">Carrinho</RouterLink></li>
       </ul>
@@ -119,9 +132,37 @@ nav ul {
   border-radius: 20px;
   color: #c21a1a;
   padding: 5px 10px;
+  margin-right: 20px;
 }
 .filtroPreco input{
   width: 100px;
    border: #c21a1a solid 2px;
+  }
+  summary {
+    margin-bottom: 2px;
+
+  .produtos{
+    position: relative;
+  }
+
+  .submenu{
+    display: none;
+    position: absolute;
+    top: 100%;
+    padding: 10px;
+    left: 0;
+    z-index: 10;
+    background-color: white;
+    border: 2px solid #c21a1a;
+  }
+
+  .submenu a{
+    display: block;
+    color: #c21a1a;
+    padding: 5px;
+  }
+
+  .produtos:hover .submenu{
+    display: block;
   }
 </style>
