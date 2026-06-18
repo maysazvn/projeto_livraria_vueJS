@@ -8,6 +8,19 @@ function removerDoCarrinho(idLivro) {
 const pqpFunciona = Number(idLivro);
 carrinho.value = carrinho.value.filter((item) => item.id !== pqpFunciona);
 }
+const atualizarQtdCarrinho = ({ id, quantidade }) => {
+  const item = carrinho.value.find(i => i.id === id)
+  if (item) {
+    item.quantidade = quantidade
+  }
+}
+const totalDeTudo = () => {
+  let total = 0;
+  for(const i of carrinho.value) {
+    total += i.preco * i.quantidade
+  }
+  return total
+}
 </script>
 
 <template>
@@ -16,7 +29,7 @@ carrinho.value = carrinho.value.filter((item) => item.id !== pqpFunciona);
 
     <div class="produtos">
   <h3>
-        Produto              
+        Produto               
       </h3>
       <h3 class="quantidade">
         Quantidade
@@ -39,10 +52,16 @@ carrinho.value = carrinho.value.filter((item) => item.id !== pqpFunciona);
       :genero="item.genero"
       :id="item.id"
       :quantidade="item.quantidade"
-      :precototal="item.precoTotal"
+      :precototal="item.preco * item.quantidade"
       @remover="removerDoCarrinho"
+      @attQuantidade="atualizarQtdCarrinho"
     ></CartItem>
 
+      <div class="tdt">
+  <h2>Total do Pedido: R$ {{ totalDeTudo().toFixed(2) }}</h2>
+ 
+</div>
+      <button>
 
       <button class="voltar">
         <a href="/">Voltar para loja</a>
@@ -67,6 +86,11 @@ carrinho.value = carrinho.value.filter((item) => item.id !== pqpFunciona);
 </template>
 
 <style scoped>
+.tdt {
+  position: relative;
+  left: 70vw;
+  margin: 2vw 0; 
+}
 div.nsei {
   display: flex;
   margin: 200px 0;

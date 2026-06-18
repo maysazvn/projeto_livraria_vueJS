@@ -1,13 +1,17 @@
 <script setup>
 // Este arquivo é para o componente CartItem.vue, que representa um item individual no carrinho de compras. Ele exibe as informações do produto, como nome, preço e quantidade, e permite que o usuário ajuste a quantidade ou remova o item do carrinho.
-
 import { formataPreco } from '@/utils/currencyUtils';
 defineProps(["id", "titulo", "autor", "resenha", "preco", "genero", "capa", "quantidade", "precototal"]);
-const emit = defineEmits(['remover']);
+const emit = defineEmits(['remover', 'attQuantidade']);
 const removimento = (id) => {
   emit('remover', id);
 };
-
+const novaQuantidade = (id, event) => {
+  const novaQ = parseInt(event.target.value);
+  if (novaQ >= 1)  {
+    emit('attQuantidade', { id, quantidade: novaQ });
+  }
+};
 </script>
 
 <template>
@@ -27,6 +31,9 @@ const removimento = (id) => {
         {{ formataPreco(preco) }}
                 </p>
             </div>
+            
+            <input type="number" :value="quantidade" min="1" @input="novaQuantidade(id, $event)">
+
             <input type="number" :placeholder="quantidade">
             <p class="pTotal">{{ formataPreco(precototal) }}</p>
         
@@ -49,7 +56,11 @@ const removimento = (id) => {
 }
 input{
     position: absolute;
-    right: 45vw;
+    right: 48vw;
+    border: solid black 1px;
+    width: 3vw;
+    height: 2vw;
+    font-size: large;
 }
 .container img{ 
     margin-right: 50px ;

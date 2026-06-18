@@ -13,8 +13,7 @@ const carrinho = ref([
     preco: 58.0,
     genero: 'ficção científica',
     capa: '/imagens/jurassic-park.jpg',
-    quantidade: 2,
-    precoTotal: 116,
+    quantidade: 1,
   },
   {
     id: 2,
@@ -25,7 +24,6 @@ const carrinho = ref([
     genero: 'romance',
     capa: '/imagens/orgulho-e-preconceito.jpg',
     quantidade: 1,
-    precoTotal: 51,
   },
   {
     id: 3,
@@ -36,8 +34,7 @@ const carrinho = ref([
     genero: 'romance gótico',
     capa: '/imagens/o-morro.jpg',
     quantidade: 3,
-    precoTotal: 134.7,
-  },
+  }
 ])
 
 function addCarrinho(idLivro, quantidade) {
