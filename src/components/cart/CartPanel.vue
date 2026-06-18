@@ -31,7 +31,7 @@ const totalDeTudo = () => {
   <h3>
         Produto               
       </h3>
-      <h3>
+      <h3 class="quantidade">
         Quantidade
       </h3>
       <h3>Subtotal</h3>
@@ -62,12 +62,14 @@ const totalDeTudo = () => {
  
 </div>
       <button>
+
+      <button class="voltar">
         <a href="/">Voltar para loja</a>
       </button>
 
-        <div>
+        <div class="cupom">
 
-            <input type="text">Insira seu cupom
+            <input type="text" class="cupons" placeholder="Insira seu cupom">
             <button>Inserir cupom</button>
 
         </div>
@@ -99,6 +101,7 @@ div.nsei h2 {
   font-weight: bolder;
 }
 
+
 h1 {
   color: #c21a1a;
   margin: 100px 0 0 100px;
@@ -121,19 +124,60 @@ button {
   display: flex;
   justify-content: space-between;
   border-bottom: #c21a1a solid 2px;
-    padding: 10px;
+    padding: 0px;
     width: 80%;
     margin: 0 auto;
 }
 
 .produtos h3 {
 font-weight: bolder;
-  font-size: 1rem;
+  font-size: 1.6rem;
 }
 
+
 .summary {
-  max-width: 500px;
+  width: 700px;
   padding: 15px;
+  margin-left: auto;
+  margin-right: 35px;
+  margin-bottom: 4%;
+}
+
+button.voltar {
+  background: white;
+  border: rgb(189, 189, 189) solid 2px;
+  border-radius: 5px;
+  padding: 25px;
+  font-size: 1.5rem;
+  margin: 50px 20px 25px 60px;
+  cursor: pointer;
+  
+}
+
+button a {
+  color: rgb(0, 0, 0);
+  font-weight: bold;
+  font-size: 20px;
+}
+
+.cupom input {
+  padding: 20px;
+  margin: 2% 0 0 3%;
+  border: black 2px solid;
+  width: 330px;
+  font-size: 25px;
+}
+
+.cupom  button {
+    background: #c21a1a;
+  border: none;
+  border-radius: 5px;
+  padding: 20px;
+  font-size: 1.5rem;
+  margin: 50px 20px 25px 60px;
+  cursor: pointer;
+  color: white;
+  width: 230px;
 }
 
 </style>

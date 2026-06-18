@@ -20,10 +20,9 @@
                 Total:
             </p>
             <hr>
+               <button>Ir para o pagamento</button>
         </div>
-        <div>
-            <button>Ir para o pagamento</button>
-        </div>
+     
     </section>
 
 </template>
@@ -31,7 +30,7 @@
 <style scoped>
 
 hr {
-    max-width: 70%;
+    max-width: 500px;
 }
 
 .sumary {
@@ -41,6 +40,25 @@ hr {
 
 .sumary p {
 font-size: 25px;
+margin-bottom: 35px;
+}
+
+ button {
+ background: #c21a1a;
+  border: none;
+  border-radius: 5px;
+  padding: 20px;
+  font-size: 1rem;
+  margin: 35px 20px 25px 20px;
+  cursor: pointer;
+  color: white;
+  width: 460px;
+}
+
+h1 {
+    font-weight: bold;
+    font-size: 30px;
+    margin-bottom: 25px;
 }
 
 </style>
