@@ -8,6 +8,7 @@ const removimento = (id) => {
 };
 const novaQuantidade = (id, event) => {
   const novaQ = parseInt(event.target.value);
+  console.log('INPUT MUDOU', novaQ)
   if (novaQ >= 1)  {
     emit('attQuantidade', { id, quantidade: novaQ });
   }
@@ -18,10 +19,10 @@ const novaQuantidade = (id, event) => {
 
     <section>
         <div class="item">
-            
+
             <div class="container">
                 <img :src="capa">
-            
+
             <div class="detalhes">
                 <h3>
                     {{ titulo }}
@@ -31,14 +32,13 @@ const novaQuantidade = (id, event) => {
         {{ formataPreco(preco) }}
                 </p>
             </div>
-            
+
             <input type="number" :value="quantidade" min="1" @input="novaQuantidade(id, $event)">
 
-            <input type="number" :placeholder="quantidade">
-            <p class="pTotal">{{ formataPreco(precototal) }}</p>
-        
-        
-        
+            <p class="pTotal">{{ formataPreco(preco * quantidade)}}</p>
+
+
+
             <button class="botaoRemover" @click="removimento(id)">
                 <i class="fa-solid fa-trash"></i> Excluir
             </button>
@@ -62,7 +62,7 @@ input{
     height: 2vw;
     font-size: large;
 }
-.container img{ 
+.container img{
     margin-right: 50px ;
 }
 .botaoRemover {
@@ -80,8 +80,8 @@ input{
 }
 .container {
     display: flex;
-    align-items: center; 
- 
+    align-items: center;
+
 }
 img {
     max-width: 250px;
@@ -97,7 +97,7 @@ img {
 }
 
 
-input { 
+input {
     max-height: 50px;
     position: absolute;
     right: 590px;
