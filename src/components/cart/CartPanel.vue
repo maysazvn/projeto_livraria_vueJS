@@ -1,13 +1,8 @@
 <script setup>
-import CartItem from './CartItem.vue'
-
 // Este arquivo é um componente Vue que permite ao usuário visualizar e gerenciar os itens em seu carrinho de compras. Ele exibe uma lista de itens, permite que o usuário ajuste as quantidades ou remova itens, e mostra um resumo do total do carrinho. O componente é projetado para ser usado em uma página de carrinho de compras, onde os usuários podem revisar seus itens antes de finalizar a compra.
-import { ref } from 'vue';
-import { carrinho } from '@/utils/cartUtils.js'
+import CartItem from './CartItem.vue'
+import { carrinho, cupom, totalDesconto, cupomDigitado } from '@/utils/cartUtils.js'
 import CartSummary from './CartSummary.vue';
-
-const cupomDigitado = ref('');
-const desconto = ref(0);
 
 function removerDoCarrinho(idLivro) {
 const pqpFunciona = Number(idLivro);
@@ -22,30 +17,6 @@ const atualizarQtdCarrinho = ({ id, quantidade }) => {
     item.quantidade = quantidade
   }
 }
-const totalDeTudo = () => {
-  let total = 0;
-  for(const i of carrinho.value) {
-    total += i.preco * i.quantidade
-  }
-  return total
-}
-
-function cupom(){
-  if(cupomDigitado.value.toUpperCase() === 'LIVRO30'){
-    desconto.value = 0.30;
-    alert("Cupom aplicado!");
-  } else{
-    alert("Cupom inválido!");
-    desconto.value = 0;
-  }
-  }
-
-  const totalDesconto = () => {
-    const totalBase = totalDeTudo();
-    const valorDoDesconto = totalBase * desconto.value;
-    return totalBase - valorDoDesconto;
-  }
-
 
 </script>
 
@@ -115,10 +86,6 @@ function cupom(){
   position: relative;
   left: 70vw;
   margin: 2vw 0;
-}
-div.nsei {
-  display: flex;
-  margin: 200px 0;
 }
 
 div.nsei h2 {

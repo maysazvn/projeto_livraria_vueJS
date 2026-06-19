@@ -5,9 +5,9 @@ import { ref } from 'vue';
 import ProductComments from './ProductComments.vue';
 import { formataPreco } from '@/utils/currencyUtils.js';
 import { favoritar } from '@/data/favoritos.js';
-defineProps(["id", "titulo", "autor", "resenha", "preco", "genero", "capa", "subgenero"])
-const abrirDetalhes = ref(false);
 import { addCarrinho } from '@/utils/cartUtils.js';
+defineProps(["id", "titulo", "autor", "resenha", "preco", "genero", "capa", "subgenero", "banner"])
+const abrirDetalhes = ref(false);
 </script>
 
 <template>

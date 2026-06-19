@@ -4,6 +4,9 @@
 import { produtos } from '@/data/product'
 import { ref } from 'vue'
 
+const cupomDigitado = ref('');
+const desconto = ref(0);
+
 const carrinho = ref([
   {
     id: 1,
@@ -54,4 +57,28 @@ function addCarrinho(idLivro, quantidade) {
   }
 }
 
-export { carrinho, addCarrinho }
+function cupom(){
+  if(cupomDigitado.value.toUpperCase() === 'LIVRO30'){
+    desconto.value = 0.30;
+    alert("Cupom aplicado!");
+  } else{
+    alert("Cupom inválido!");
+    desconto.value = 0;
+  }
+  }
+
+const totalDeTudo = () => {
+  let total = 0;
+  for(const i of carrinho.value) {
+    total += i.preco * i.quantidade
+  }
+  return total
+}
+
+const totalDesconto = () => {
+    const totalBase = totalDeTudo();
+    const valorDoDesconto = totalBase * desconto.value;
+    return totalBase - valorDoDesconto;
+  }
+
+export { carrinho, addCarrinho, cupom, totalDeTudo, totalDesconto, cupomDigitado, desconto }
