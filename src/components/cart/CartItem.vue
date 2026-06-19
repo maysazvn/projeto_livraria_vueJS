@@ -119,6 +119,4 @@ div.detalhes {
     position: relative;
 }
 
-
-
 </style>

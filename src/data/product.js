@@ -307,5 +307,16 @@ export const produtos = [
   subgenero: 'fantasia mágica',
   capa: '/imagens/pedra.jpg',
   vendas: 2
+},
+{
+  id: 29,
+  titulo: 'Scott Pilgrim',
+  autor: 'Bryan Lee OMalley',
+  resenha: 'oxigenio',
+  preco: 60.00,
+  genero: 'fantasia',
+  subgenero: 'fantasia cômica',
+  capa: '/imagens/scott-pilgrim-1.jpg',
+  vendas: 521
 }
 ]

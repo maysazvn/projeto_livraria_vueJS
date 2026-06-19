@@ -17,12 +17,11 @@ return [...produtos].sort((a, b) => b.vendas - a.vendas).slice(0, 6);
     <div>
     <p class="esp">Livro destaque</p>
 
-    <h2>blablabla</h2>
-    <p>Descrição do livro</p>
-    <button>Acessar página do livro</button>
+    <h2>Scott Pilgrim</h2>
+    <p>Scott Pilgrim tem 23 anos, integra uma banda de colégio, vive trocando de emprego e tem um namoro firme. Sua vida está maravilhosa, até conhecer Ramona Flowers. Ele logo se apaixona perdidamente por ela, só que não será fácil conquistar seu amor. Para tanto ele precisa enfrentar os sete ex-namorados dela, que estão dispostos a tudo para impedir sua felicidade com outra pessoa</p>
     </div>
 
-    <img src="../imagens/scott-pilgrim-1.jpg" alt="">
+    <img src="../../../public/imagens/scott-pilgrim-1.jpg" alt="">
    </section>
 
    <section class="info">
@@ -85,17 +84,20 @@ border: 2px solid #c21a1a;
 border-radius: 5px;
 padding: 10px;
 margin: 2vw 0;
+width: 30%;
 }
 
 .banner h2{
 font-size: 4rem;
 font-weight: bold;
 margin: 2vw 0;
+text-align: left;
 }
 
 .banner p{
   font-size: 1.5rem;
   margin: 2vw 0;
+  width: 50%;
 }
 
 .banner button{
