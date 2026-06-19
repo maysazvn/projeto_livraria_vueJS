@@ -42,7 +42,7 @@ import { addCarrinho } from '@/utils/cartUtils.js';
             <p class="resenha">{{ resenha }}</p>
             <p class="preco">{{ formataPreco(preco) }}</p>
 
-            <button class="adicionar" @click.prevent="abrirDetalhes = false"  >Adicionar ao carrinho</button>
+            <button class="adicionar" @click.prevent="abrirDetalhes = false; addCarrinho(id, 1)"  >Adicionar ao carrinho</button>
          </div>
         </div>
 
