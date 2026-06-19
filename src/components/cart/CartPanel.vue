@@ -1,22 +1,8 @@
 <script setup>
 // Este arquivo é um componente Vue que permite ao usuário visualizar e gerenciar os itens em seu carrinho de compras. Ele exibe uma lista de itens, permite que o usuário ajuste as quantidades ou remova itens, e mostra um resumo do total do carrinho. O componente é projetado para ser usado em uma página de carrinho de compras, onde os usuários podem revisar seus itens antes de finalizar a compra.
 import CartItem from './CartItem.vue'
-import { carrinho, cupom, totalDesconto, cupomDigitado } from '@/utils/cartUtils.js'
+import { carrinho, cupom, cupomDigitado, atualizarQtdCarrinho, removerDoCarrinho } from '@/utils/cartUtils.js'
 import CartSummary from './CartSummary.vue';
-
-function removerDoCarrinho(idLivro) {
-const pqpFunciona = Number(idLivro);
-carrinho.value = carrinho.value.filter((item) => item.id !== pqpFunciona);
-}
-const atualizarQtdCarrinho = ({ id, quantidade }) => {
-
-  console.log('teste', id, quantidade)
-
-  const item = carrinho.value.find(i => i.id === id)
-  if (item) {
-    item.quantidade = quantidade
-  }
-}
 
 </script>
 
@@ -54,11 +40,6 @@ const atualizarQtdCarrinho = ({ id, quantidade }) => {
       @attQuantidade="(dados) => atualizarQtdCarrinho(dados)"
     ></CartItem>
 
-      <div class="tdt">
-  <h2>Total do Pedido: R$ {{ totalDesconto().toFixed(2) }}</h2>
-
-</div>
-
       <button class="voltar">
         <a href="/">Voltar para loja</a>
       </button>
@@ -68,12 +49,11 @@ const atualizarQtdCarrinho = ({ id, quantidade }) => {
             <input type="text" class="cupons" placeholder="Insira seu cupom (LIVRO30)" v-model="cupomDigitado">
             <button @click="cupom">Inserir cupom</button>
 
+            <div class="summary">
+        <CartSummary></CartSummary>
+    </div>
         </div>
 
-    </div>
-
-    <div class="summary">
-        <CartSummary></CartSummary>
     </div>
 
 
@@ -82,18 +62,6 @@ const atualizarQtdCarrinho = ({ id, quantidade }) => {
 </template>
 
 <style scoped>
-.tdt {
-  position: relative;
-  left: 70vw;
-  margin: 2vw 0;
-}
-
-div.nsei h2 {
-  margin: 0 170px;
-  font-weight: bolder;
-}
-
-
 h1 {
   color: #c21a1a;
   margin: 100px 0 0 100px;
@@ -110,6 +78,12 @@ button {
   padding: 10px 20px;
   border: solid black 1px;
   margin: 0 30px;
+}
+
+button:hover{
+transform: scale(0.9);
+transition: .2s;
+cursor: pointer;
 }
 
 .produtos {
@@ -152,12 +126,17 @@ button a {
   font-size: 20px;
 }
 
+.cupom{
+  display: flex;
+  margin: 2% 0 0 3%;
+}
+
 .cupom input {
   padding: 20px;
-  margin: 2% 0 0 3%;
   border: black 2px solid;
   width: 330px;
   font-size: 25px;
+  height: 4vw;
 }
 
 .cupom  button {
@@ -166,10 +145,10 @@ button a {
   border-radius: 5px;
   padding: 20px;
   font-size: 1.5rem;
-  margin: 50px 20px 25px 60px;
   cursor: pointer;
   color: white;
   width: 230px;
+  height: 4vw;
 }
 
 </style>

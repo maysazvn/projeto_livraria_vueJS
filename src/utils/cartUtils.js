@@ -57,12 +57,34 @@ function addCarrinho(idLivro, quantidade) {
   }
 }
 
+function removerDoCarrinho(idLivro) {
+const pqpFunciona = Number(idLivro);
+carrinho.value = carrinho.value.filter((item) => item.id !== pqpFunciona);
+}
+
+const atualizarQtdCarrinho = ({ id, quantidade }) => {
+
+  console.log('teste', id, quantidade)
+
+  const item = carrinho.value.find(i => i.id === id)
+  if (item) {
+    item.quantidade = quantidade
+  }
+}
+
+function pagar(){
+alert('Pagamento efetuado!');
+
+carrinho.value = [];
+}
+
 function cupom(){
   if(cupomDigitado.value.toUpperCase() === 'LIVRO30'){
     desconto.value = 0.30;
     alert("Cupom aplicado!");
   } else{
     alert("Cupom inválido!");
+    console.log(cupomDigitado)
     desconto.value = 0;
   }
   }
@@ -81,4 +103,4 @@ const totalDesconto = () => {
     return totalBase - valorDoDesconto;
   }
 
-export { carrinho, addCarrinho, cupom, totalDeTudo, totalDesconto, cupomDigitado, desconto }
+export { carrinho, addCarrinho, cupom, totalDeTudo, totalDesconto, cupomDigitado, desconto, removerDoCarrinho, atualizarQtdCarrinho, pagar }

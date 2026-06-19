@@ -30,7 +30,7 @@ function adicionarComentario() {
             </div>
         </div>
 
-        <div class="listaComentarios" v-for="comentario in comentariosFiltrados" :key="comentario.nome">
+        <div class="listaComentarios" v-for="comentario in comentarios" :key="comentario.nome">
             <p class="nome">{{ comentario.nome }}</p>
             <p class="texto">{{ comentario.texto }}</p>
         </div>
@@ -94,5 +94,9 @@ cursor: pointer;
 
 .listaComentarios .texto{
     color: black;
+}
+
+.nome, .texto{
+    overflow-wrap: break-word;
 }
 </style>

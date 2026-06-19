@@ -1,26 +1,27 @@
 <script setup>
 // Este arquivo é um componente Vue que representa o último resumo do carrinho de compras, exibindo o total geral e um botão para finalizar a compra.
-
+import { totalDeTudo, totalDesconto, pagar} from '../../utils/cartUtils';
+import { formataPreco } from '@/utils/currencyUtils';
 </script>
 
 <template>
 
-    <section >
+    <section>
         <div class="sumary">
             <h1>Total Compra</h1>
             <p>
-                Produtos: 
+                Produtos: {{ formataPreco(totalDeTudo())}}
             </p>
             <hr>
             <p>
-                Frete:
+                Frete: Grátis
             </p>
                 <hr>
             <p>
-                Total:
+                Total: {{ formataPreco(totalDesconto())}}
             </p>
             <hr>
-               <button>Ir para o pagamento</button>
+               <button @click="pagar()">Ir para o pagamento</button>
         </div>
      
     </section>
@@ -59,6 +60,12 @@ h1 {
     font-weight: bold;
     font-size: 30px;
     margin-bottom: 25px;
+}
+
+button:hover{
+transform: scale(0.9);
+transition: .2s;
+cursor: pointer;
 }
 
 </style>
