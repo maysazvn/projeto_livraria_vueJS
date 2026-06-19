@@ -69,7 +69,6 @@ if (precoMin.value) {
           <RouterLink to="/produtos?genero=ficção">Ficção</RouterLink>
           <RouterLink to="/produtos?genero=fantasia">Fantasia</RouterLink>
           <RouterLink to="/produtos?genero=terror">Terror</RouterLink>
-          <RouterLink to="/produtos?genero=outros">Outros</RouterLink>
           </div>
         </li>
         <li><RouterLink to="/favoritos">Favoritados</RouterLink></li>

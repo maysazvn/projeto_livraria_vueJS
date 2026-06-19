@@ -1,20 +1,10 @@
 <script setup>
-import { computed, ref } from 'vue';
+import { ref } from 'vue';
 defineProps(['id']);
 
 const comentarios = ref([{nome: 'Fábio Longo de Moura', texto: 'Muito bom!'}]);
 const nome = ref('');
 const texto = ref('');
-let filtro = ref('')
-
-let comentariosFiltrados = computed(() => {
-  if (filtro.value.trim().length > 0){
-return comentarios.value.filter(comentario => comentario.desc.includes(filtro.value));
-  }
-  else{
-    return comentarios.value;
-  }
-})
 
 function adicionarComentario() {
 
