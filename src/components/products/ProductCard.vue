@@ -7,6 +7,7 @@ import { formataPreco } from '@/utils/currencyUtils.js';
 import { favoritar } from '@/data/favoritos.js';
 defineProps(["id", "titulo", "autor", "resenha", "preco", "genero", "capa", "subgenero"])
 const abrirDetalhes = ref(false);
+import { addCarrinho } from '@/utils/cartUtils.js';
 </script>
 
 <template>
@@ -41,7 +42,7 @@ const abrirDetalhes = ref(false);
             <p class="resenha">{{ resenha }}</p>
             <p class="preco">{{ formataPreco(preco) }}</p>
 
-            <button class="adicionar" @click.prevent="abrirDetalhes = false">Adicionar ao carrinho</button>
+            <button class="adicionar" @click.prevent="abrirDetalhes = false; addCarrinho(id, 1)"  >Adicionar ao carrinho</button>
          </div>
         </div>
 

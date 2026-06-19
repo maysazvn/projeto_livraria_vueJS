@@ -27,9 +27,10 @@ const livrosFavoritados = computed(() => {
 
 h2{
     font-weight: bold;
-  font-size: 1.5rem;
+  font-size: 1.7rem;
   margin: 1vw auto;
   text-align: center;
+  margin-top: 45px;
 }
 div.produtos{
   display: grid;
@@ -39,5 +40,6 @@ div.produtos{
 
 p{
     text-align: center;
+    font-size: 1.4rem;
 }
 </style>

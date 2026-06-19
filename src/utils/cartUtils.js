@@ -2,55 +2,53 @@
 //Exemplo: Remover itens do carrinho, adicionar quantidade para o item já no carrinho, remover quantidade para o item já no carrinho, calcular o total do carrinho, filtrar livros por autor, por preço, etc. Vocês podem criar funções para cada uma dessas funcionalidades e exportá-las para serem usadas em outros componentes do aplicativo, como o ProductList.vue, onde o usuário poderá filtrar os livros disponíveis, ou no CartPanel.vue, onde o usuário poderá gerenciar os itens em seu carrinho de compras.
 
 import { produtos } from '@/data/product'
+import { ref } from 'vue'
 
-const carrinho = [
+const carrinho = ref([
   {
     id: 1,
-    titulo: 'Clean Code',
-    autor: 'Robert C. Martin',
-    resenha:
-      'Um livro sobre boas práticas de programação, escrita de código limpo e melhoria da qualidade de software.',
-    preco: 129.9,
-    capa: 'https://covers.openlibrary.org/b/isbn/9780132350884-L.jpg',
-    quantidade: 2,
-    precoTotal: 259.8,
+    titulo: 'Jurassic Park',
+    autor: 'Michael Crichton',
+    resenha: 'dinosauro',
+    preco: 58.0,
+    genero: 'ficção científica',
+    capa: '/imagens/jurassic-park.jpg',
+    quantidade: 1,
+  },
+  {
+    id: 2,
+    titulo: 'Orgulho e Preconceito',
+    autor: 'Jane Austen',
+    resenha: 'preconceito',
+    preco: 51.0,
+    genero: 'romance',
+    capa: '/imagens/orgulho-e-preconceito.jpg',
+    quantidade: 1,
   },
   {
     id: 3,
-    titulo: 'Eloquent JavaScript',
-    autor: 'Marijn Haverbeke',
-    resenha:
-      'Uma introdução prática à linguagem JavaScript, com exemplos e conceitos fundamentais para desenvolvimento web.',
-    preco: 89.9,
-    capa: 'https://covers.openlibrary.org/b/isbn/9781593279509-L.jpg',
-    quantidade: 1,
-    precoTotal: 89.9,
-  },
-  {
-    id: 5,
-    titulo: 'Design Patterns',
-    autor: 'Erich Gamma, Richard Helm, Ralph Johnson e John Vlissides',
-    resenha:
-      'Livro clássico sobre padrões de projeto e soluções reutilizáveis para problemas comuns de software.',
-    preco: 159.9,
-    capa: 'https://covers.openlibrary.org/b/isbn/9780201633610-L.jpg',
+    titulo: 'O morro dos ventos uivantes',
+    autor: 'Emily Bronte',
+    resenha: 'tornado',
+    preco: 44.9,
+    genero: 'romance gótico',
+    capa: '/imagens/o-morro.jpg',
     quantidade: 3,
-    precoTotal: 479.7,
-  },
-]
+  }
+])
 
 function addCarrinho(idLivro, quantidade) {
   const livro = produtos.find((p) => p.id === idLivro)
   if (livro) {
-    const itemExistente = carrinho.find((item) => item.id === idLivro)
+    const itemExistente = carrinho.value.find((item) => item.id === idLivro)
     if (itemExistente) {
       itemExistente.quantidade += quantidade
       itemExistente.precoTotal = itemExistente.quantidade * livro.preco
     } else {
-      carrinho.push({
+      carrinho.value.push({
         ...livro,
         quantidade,
-        precoTotal: quantidade * livro.preco,
+        precototal: quantidade * livro.preco,
       })
     }
   }
