@@ -2,13 +2,21 @@
 import CartItem from './CartItem.vue'
 
 // Este arquivo é um componente Vue que permite ao usuário visualizar e gerenciar os itens em seu carrinho de compras. Ele exibe uma lista de itens, permite que o usuário ajuste as quantidades ou remova itens, e mostra um resumo do total do carrinho. O componente é projetado para ser usado em uma página de carrinho de compras, onde os usuários podem revisar seus itens antes de finalizar a compra.
+import { ref } from 'vue';
 import { carrinho } from '@/utils/cartUtils.js'
 import CartSummary from './CartSummary.vue';
+
+const cupomDigitado = ref('');
+const desconto = ref(0);
+
 function removerDoCarrinho(idLivro) {
 const pqpFunciona = Number(idLivro);
 carrinho.value = carrinho.value.filter((item) => item.id !== pqpFunciona);
 }
 const atualizarQtdCarrinho = ({ id, quantidade }) => {
+
+  console.log('teste', id, quantidade)
+
   const item = carrinho.value.find(i => i.id === id)
   if (item) {
     item.quantidade = quantidade
@@ -21,6 +29,24 @@ const totalDeTudo = () => {
   }
   return total
 }
+
+function cupom(){
+  if(cupomDigitado.value.toUpperCase() === 'LIVRO30'){
+    desconto.value = 0.30;
+    alert("Cupom aplicado!");
+  } else{
+    alert("Cupom inválido!");
+    desconto.value = 0;
+  }
+  }
+
+  const totalDesconto = () => {
+    const totalBase = totalDeTudo();
+    const valorDoDesconto = totalBase * desconto.value;
+    return totalBase - valorDoDesconto;
+  }
+
+
 </script>
 
 <template>
@@ -29,7 +55,7 @@ const totalDeTudo = () => {
 
     <div class="produtos">
   <h3>
-        Produto               
+        Produto
       </h3>
       <h3 class="quantidade">
         Quantidade
@@ -40,7 +66,7 @@ const totalDeTudo = () => {
     </div>
     <div>
 
-  
+
          <CartItem
       v-for="item in carrinho"
       :key="item.id"
@@ -54,14 +80,13 @@ const totalDeTudo = () => {
       :quantidade="item.quantidade"
       :precototal="item.preco * item.quantidade"
       @remover="removerDoCarrinho"
-      @attQuantidade="atualizarQtdCarrinho"
+      @attQuantidade="(dados) => atualizarQtdCarrinho(dados)"
     ></CartItem>
 
       <div class="tdt">
-  <h2>Total do Pedido: R$ {{ totalDeTudo().toFixed(2) }}</h2>
- 
+  <h2>Total do Pedido: R$ {{ totalDesconto().toFixed(2) }}</h2>
+
 </div>
-      <button>
 
       <button class="voltar">
         <a href="/">Voltar para loja</a>
@@ -69,18 +94,18 @@ const totalDeTudo = () => {
 
         <div class="cupom">
 
-            <input type="text" class="cupons" placeholder="Insira seu cupom">
-            <button>Inserir cupom</button>
+            <input type="text" class="cupons" placeholder="Insira seu cupom (LIVRO30)" v-model="cupomDigitado">
+            <button @click="cupom">Inserir cupom</button>
 
         </div>
-       
+
     </div>
 
     <div class="summary">
         <CartSummary></CartSummary>
     </div>
 
-  
+
 
   </section>
 </template>
@@ -89,7 +114,7 @@ const totalDeTudo = () => {
 .tdt {
   position: relative;
   left: 70vw;
-  margin: 2vw 0; 
+  margin: 2vw 0;
 }
 div.nsei {
   display: flex;
@@ -151,7 +176,7 @@ button.voltar {
   font-size: 1.5rem;
   margin: 50px 20px 25px 60px;
   cursor: pointer;
-  
+
 }
 
 button a {
